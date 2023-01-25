@@ -57,7 +57,7 @@ var confettiSettings = {
   max: "250",
   size: "1.8",
   rotate: true,
-  clock: "25",
+  clock: "30",
   start_from_edge: true,
 };
 var confetti = new ConfettiGenerator(confettiSettings);
@@ -308,10 +308,6 @@ const showResult = () => {
   questionSection.style.display = "none";
   resultSection.style.display = "block";
   canvas.style.display = "block";
-
-  // initially no confetti will shown
-  confett.clear();
-  userScore = 80;
 
   // Show the result in the result text
   resultText.textContent = `You scored ${userScore} points`;

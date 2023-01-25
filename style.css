@@ -14,7 +14,7 @@
   --main-black: #0a0a0a;
   --text-black: #0a0a0a;
   --light-main-color: #fca2116b;
-  --lignt-blue: #daf0ff;
+  --light-blue: #daf0ff;
   --white: #fff;
 }
 
@@ -23,6 +23,7 @@
   --main-white: #1f1f1f;
   --secondary-black: #d8d8d8;
   --main-black: #e0e0e0;
+  --light-blue: #ffe646;
   --white: #000;
 }
 
@@ -374,13 +375,14 @@ body.dark-mode .label .ball {
 }
 .time-container {
   display: flex;
-  background-color: var(--lignt-blue);
+  background-color: var(--light-blue);
   padding: 1.5em;
   font-weight: 700;
 }
 
 .time-container .time {
   font-size: 1.8rem;
+  color: var(--text-black);
 }
 .time-container .text {
   font-size: 1.8rem;
