@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QuizMasterJS</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header Section -->
+      <header>
+        <div class="container">
+          <div class="header-content">
+            <a href="#" class="logo">
+              QuizMaster<span class="highlight">JS</span></a
+            >
+            <button class="switch-mode">
+              <input type="checkbox" class="checkbox" id="chk" />
+              <label class="label" for="chk">
+                <i class="fas fa-sun"></i>
+                <i class="fas fa-moon"></i>
+                <div class="ball"></div>
+              </label>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Banner Section -->
+      <section class="banner">
+        <div class="banner-left">
+          <h2 class="banner-title">
+            Put your knowledge to the test with our brain-busting
+            <span class="highlight"> JavaScript </span>quizzes!
+          </h2>
+          <p class="banner-description">
+            Our quizzes are designed to challenge even the most knowledgeable
+            individuals. From easy to hard, we've got something for everyone.
+            Our quizzes are not only fun but also informative.
+          </p>
+          <button id="condition-modal-btn">
+            Start Quiz
+            <span> <i class="fa-solid fa-arrow-right-long"></i> </span>
+          </button>
+        </div>
+        <div class="banner-right">
+          <img src="images/banner.svg" alt="banner image" />
+        </div>
+      </section>
+
+      <!-- Modal Condtion Section -->
+      <section class="quiz-modal-container">
+        <div class="quiz-modal-condition glass">
+          <h2 class="modal-title">Some rules to play this Quizes!</h2>
+          <div class="modal-conditions">
+            <p>
+              1. You will have only
+              <span class="highlight">10 seconds</span> for each question.
+            </p>
+            <p>2. Once you select your answer, it can't be change.</p>
+            <p>3. You can't select any option once time goes off.</p>
+            <p>4. You can't exit from quiz while you're playing.</p>
+            <p>5. You will get points on the basis of your correct answer.</p>
+          </div>
+          <div class="condition-actions">
+            <button class="exit-modal btn">Exit Quiz</button>
+            <button class="start-quiz btn">Continue</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Question Section -->
+      <section class="question-section">
+        <div class="question-container glass">
+          <div class="question-header">
+            <div class="time-container">
+              <div class="time">
+                <span class="time-count"> 10</span> seconds
+              </div>
+              <div class="text">Left</div>
+            </div>
+            <div class="user-score">
+              <p><span class="score"> 10</span> points</p>
+            </div>
+          </div>
+          <div class="timeline"></div>
+          <div class="question-center">
+            <h2 class="question-text"></h2>
+            <div class="question-options">
+              <!-- option start -->
+              <!-- <div class="single-option">
+                <span> This is Array</span>
+                <div class="tick-icon">
+                  <i class="fa-solid fa-check"></i>
+                </div>
+              </div> -->
+              <!-- 
+              <div class="single-option">
+                <span class="option-text">This is Array</span>
+                <div class="cross-icon">
+                  <i class="fa-solid fa-xmark"></i>
+                </div>
+              </div> -->
+
+              <!-- option end -->
+            </div>
+            <div class="answer-description"></div>
+          </div>
+
+          <div class="question-footer">
+            <div class="question-left">
+              <div class="question-progress-container">
+                <div class="question-progress"></div>
+              </div>
+              <div class="question-progress-text"></div>
+            </div>
+            <div class="question-action">
+              <button class="next-question btn">Next Question</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Result Section -->
+      <section class="result-section">
+        <div class="result-box glass">
+          <h2 class="result-expression">Congratulations!!!!</h2>
+          <p class="result-text">You Scored 60 Points</p>
+          <p class="result-feedback">
+            <span class="feedback"></span>
+          </p>
+          <div class="result-actions">
+            <button class="restart btn">Restart Quiz</button>
+            <button class="back-to-home btn">Back to Home</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Canvas || Confetti -->
+      <canvas id="my-canvas"></canvas>
+
+      <!-- Container end -->
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+      <p class="copyright">Copyright &copy;2022 Reserved by QuizMasterJS</p>
+    </footer>
+
+    <!-- JS Files -->
+    <script src="./js/confetti.min.js"></script>
+    <script src="./js/quiz.js"></script>
+    <script src="./js/app.js"></script>
+    <script
+      src="https://kit.fontawesome.com/8184740b0e.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
