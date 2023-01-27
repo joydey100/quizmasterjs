@@ -412,8 +412,17 @@ restart.addEventListener("click", () => {
   // like - removing the result section, and reset the time and score as well
   initialShowQuestion();
 
-  // show the question
-  showQuestion();
+  // before question start, there will be a loading state, after the first question, the loading option will not be shown
+  if (questionIndex === 0) {
+    loadingContainer.style.display = "flex";
+    setTimeout(() => {
+      loadingContainer.style.display = "none";
+      showQuestion();
+    }, 2500);
+  } else {
+    //   Show the question
+    showQuestion();
+  }
 });
 
 // Back To Home Event listner

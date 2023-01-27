@@ -131,6 +131,11 @@ header {
   width: 100%;
   padding: 2em 0;
   z-index: 10;
+  background: var(--main-white);
+  box-shadow: 1rem 0 1rem rgba(0, 0, 0, 0.4);
+}
+body.dark-mode header {
+  box-shadow: 1rem 0 1rem rgba(255, 255, 255, 0.4);
 }
 .header-content {
   display: flex;
@@ -273,7 +278,8 @@ body.dark-mode .label .ball {
 }
 
 /* Quiz Modal Condition */
-.quiz-modal-container::before {
+
+.quiz-modal-container {
   content: "";
   position: fixed;
   top: 0;
@@ -287,20 +293,21 @@ body.dark-mode .label .ball {
   -o-transition: background-color 300ms;
   z-index: -1;
 }
-.quiz-modal-container.active::before {
+.quiz-modal-container.active {
   background-color: rgba(0, 0, 0, 0.55);
   z-index: 11;
 }
-.quiz-modal-container.active-dark::before {
+.quiz-modal-container.active-dark {
   background-color: rgba(255, 255, 255, 0.55);
   z-index: 11;
 }
+
 .quiz-modal-condition {
   position: absolute;
   top: -40%;
   left: 50%;
   transform: translate(-50%, -50%);
-  min-width: 60%;
+  width: 60%;
   padding: 4.8em;
   background-color: var(--white);
   transition: top 400ms ease;
@@ -375,6 +382,7 @@ body.dark-mode .label .ball {
   align-items: center;
   flex-direction: column;
   z-index: 888;
+  overflow: hidden;
   display: none;
 }
 .loading-text {
@@ -748,10 +756,39 @@ footer {
   color: var(--secondary-black);
 }
 
-
 /* Responsive CSS Start */
-@media only screen and (max-width: 600px) {
-  body {
-    background-color: lightblue;
+
+/* 576 768 992 */
+@media only screen and (max-width: 992px) {
+  .container {
+    padding: 0 2em;
   }
+  .banner {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .banner-left,
+  .banner-right {
+    width: 100%;
+    flex-basis: 100%;
+  }
+  .banner-title {
+    margin-top: 3em;
+  }
+
+  .banner-right img {
+    max-width: 80%;
+    margin: 2em auto;
+  }
+  /* modal */
+  .quiz-modal-condition {
+    width: 80%;
+  }
+
+  /* Question */
+}
+
+/* 768 px */
+@media only screen and (max-width: 768px) {
 }
