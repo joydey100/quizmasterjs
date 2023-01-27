@@ -95,6 +95,34 @@ h6 {
   -ms-border-radius: 1rem;
   -o-border-radius: 1rem;
 }
+.floating {
+  animation: float 3s ease-in-out infinite;
+  -webkit-animation: float 3s ease-in-out infinite;
+}
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+    -webkit-transform: translatey(0px);
+    -moz-transform: translatey(0px);
+    -ms-transform: translatey(0px);
+    -o-transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-30px);
+    -webkit-transform: translatey(-30px);
+    -moz-transform: translatey(-30px);
+    -ms-transform: translatey(-30px);
+    -o-transform: translatey(-30px);
+  }
+  100% {
+    transform: translatey(0px);
+    -webkit-transform: translatey(0px);
+    -moz-transform: translatey(0px);
+    -ms-transform: translatey(0px);
+    -o-transform: translatey(0px);
+  }
+}
+
 /* Header Section */
 header {
   position: fixed;
@@ -273,7 +301,7 @@ body.dark-mode .label .ball {
   left: 50%;
   transform: translate(-50%, -50%);
   min-width: 60%;
-  padding: 4em;
+  padding: 4.8em;
   background-color: var(--white);
   transition: top 400ms ease;
   -webkit-transition: top 400ms ease;
@@ -290,11 +318,11 @@ body.dark-mode .label .ball {
   font-size: 4rem;
   margin-bottom: 2rem;
   font-weight: 700;
-  margin-bottom: 3.5rem;
+  margin-bottom: 3rem;
 }
 .modal-conditions p {
   font-size: 2.1rem;
-  margin: 0.9rem 0;
+  margin: 1.2rem 0;
   color: var(--secondary-black);
 }
 .modal-conditions p .highlight {
@@ -306,6 +334,7 @@ body.dark-mode .label .ball {
   justify-content: flex-end;
   align-items: center;
   gap: 1rem;
+  margin-top: 2rem;
 }
 .condition-actions button {
   margin-top: 1.5rem;
@@ -331,6 +360,58 @@ body.dark-mode .label .ball {
   color: var(--text-black);
   background-color: var(--main-color);
   border: 0.4rem solid var(--main-color);
+}
+
+/* Loading Animation */
+.loading-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--main-white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 888;
+  display: none;
+}
+.loading-text {
+  color: var(--main-black);
+  margin-bottom: 3rem;
+  font-size: 4.3rem;
+}
+.loading-line-box {
+  padding: 0.2rem;
+  width: 50%;
+  height: 2.8rem;
+  border: 0.3rem solid var(--main-color);
+  border-radius: 3rem;
+  -webkit-border-radius: 3rem;
+  -moz-border-radius: 3rem;
+  -ms-border-radius: 3rem;
+  -o-border-radius: 3rem;
+}
+.line {
+  height: 100%;
+  border-radius: 3rem;
+  background-color: var(--main-color);
+  animation: loading 2.5s forwards cubic-bezier(0, 0, 0, 0);
+  -webkit-animation: loading 2.5s forwards cubic-bezier(0, 0, 0, 0);
+  -webkit-border-radius: 3rem;
+  -moz-border-radius: 3rem;
+  -ms-border-radius: 3rem;
+  -o-border-radius: 3rem;
+}
+
+@keyframes loading {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
 }
 
 /* Question Container */
@@ -424,32 +505,51 @@ body.dark-mode .label .ball {
   -o-transition: background 200ms;
 }
 
-.single-option.correct {
+.single-option.correct,
+body.dark-mode .single-option.correct {
   background-color: #d4edda;
 }
-.single-option.correct span {
+.single-option.correct span,
+body.dark-mode .single-option.correct span {
   color: #155724;
+  font-weight: 600;
 }
 
-.single-option.incorrect {
+.single-option.incorrect,
+body.dark-mode .single-option.single-option.incorrect {
   background-color: #f8d7da;
 }
-.single-option.incorrect span {
+.single-option.incorrect span,
+body.dark-mode .single-option.incorrect span {
   color: #721c24;
+  font-weight: 600;
 }
 .single-option.disabled {
   pointer-events: none;
 }
 .single-option:hover {
-  background: var(--lignt-blue);
+  background: var(--light-blue);
+}
+body.dark-mode .single-option:hover {
+  background-color: rgba(255, 255, 255, 0.3);
 }
 .single-option span {
   font-size: 1.9rem;
   color: var(--text-black);
 }
+body.dark-mode .single-option span {
+  color: #ddd;
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+}
+body.dark-mode .single-option:hover span {
+  color: #f8f8f8;
+}
 .single-option i {
   font-size: 1.6rem;
-  font-weight: 900;
 }
 .cross-icon,
 .tick-icon {

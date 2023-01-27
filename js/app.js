@@ -26,6 +26,7 @@ const resultText = resultSection.querySelector(".result-text");
 const resultFeedback = resultSection.querySelector(".feedback");
 const restart = resultSection.querySelector(".restart");
 const backHome = resultSection.querySelector(".back-to-home");
+const loadingContainer = document.querySelector(".loading-container");
 
 /* =====================
  ! - Important Variables - *
@@ -375,8 +376,17 @@ startQuizBtn.addEventListener("click", () => {
   // Close the modal
   modalFunc("close");
 
-  //   Show the question
-  showQuestion();
+  // before question start, there will be a loading state, after the first question, the loading option will not be shown
+  if (questionIndex === 0) {
+    loadingContainer.style.display = "flex";
+    setTimeout(() => {
+      loadingContainer.style.display = "none";
+      showQuestion();
+    }, 2500);
+  } else {
+    //   Show the question
+    showQuestion();
+  }
 
   // From the beginning the score will be 0
   scoreElement.textContent = 0;
