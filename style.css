@@ -211,7 +211,7 @@ body.dark-mode .label .ball {
 }
 
 .fa-moon {
-  color: var(--main-color);
+  color: #fca311;
 }
 
 .fa-sun {
@@ -304,7 +304,7 @@ body.dark-mode .label .ball {
 
 .quiz-modal-condition {
   position: absolute;
-  top: -40%;
+  top: -100%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 60%;
@@ -375,16 +375,16 @@ body.dark-mode .label .ball {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background: var(--main-white);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   z-index: 888;
-  overflow: hidden;
   display: none;
 }
+
 .loading-text {
   color: var(--main-black);
   margin-bottom: 3rem;
@@ -431,6 +431,10 @@ body.dark-mode .label .ball {
   height: 100%;
   background: var(--main-white);
   display: none;
+}
+
+.question-section.active {
+  display: flex;
 }
 
 .question-container {
@@ -651,6 +655,9 @@ body.dark-mode .single-option:hover span {
   z-index: 9;
   display: none;
 }
+.result-section.active {
+  display: flex;
+}
 
 .result-box {
   position: absolute;
@@ -763,10 +770,21 @@ footer {
   .container {
     padding: 0 2em;
   }
+  .fas .fa-moon {
+    color: #fca311;
+  }
+
+  /* heaer */
+  .logo {
+    font-size: 3rem;
+  }
+
+  /* Banner */
   .banner {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow-y: scroll;
   }
   .banner-left,
   .banner-right {
@@ -781,14 +799,163 @@ footer {
     max-width: 80%;
     margin: 2em auto;
   }
+  .banner-right {
+    padding-bottom: 5em;
+  }
   /* modal */
   .quiz-modal-condition {
     width: 80%;
   }
 
   /* Question */
+  .question-section {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    overflow-y: scroll;
+  }
+  .question-container {
+    position: static;
+    transform: translate(0);
+    width: 100%;
+    -webkit-transform: translate(0);
+    -moz-transform: translate(0);
+    -ms-transform: translate(0);
+    -o-transform: translate(0);
+  }
+
+  /* result section */
+  .result-section {
+    overflow-y: scroll;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .result-box {
+    border: none;
+    width: 100%;
+  }
 }
 
-/* 768 px */
-@media only screen and (max-width: 768px) {
+/* 576 px */
+@media only screen and (max-width: 576px) {
+  /* header */
+  .logo {
+    font-size: 2.4rem;
+  }
+  /* Banner */
+  .banner {
+    flex-direction: column;
+  }
+  .banner-right {
+    margin-top: 4em;
+  }
+  .banner-right img {
+    max-width: 100%;
+  }
+  .banner-title {
+    font-size: 4rem;
+  }
+  .banner-description {
+    font-size: 1.7rem;
+  }
+
+  /* Quiz modal */
+  .quiz-modal-condition {
+    width: 95%;
+    padding: 3em;
+  }
+  .modal-title {
+    font-size: 2.5rem;
+  }
+  .modal-conditions p {
+    font-size: 1.6rem;
+  }
+
+  /* loading text */
+  .loading-text {
+    font-size: 3rem;
+  }
+
+  /* Question Container */
+  .question-container {
+    margin-top: 70em;
+  }
+
+  .question-header {
+    margin-top: 5em;
+    flex-direction: column;
+    gap: 3em;
+  }
+  .time-container,
+  .user-score {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+  .time-container .time {
+    text-align: center;
+  }
+  .timeline {
+    margin: 2em 0;
+  }
+  .question-text {
+    font-size: 3rem;
+    margin: 1.7em 0;
+  }
+  .single-option span {
+    font-size: 1.7rem;
+  }
+  .question-footer {
+    flex-direction: column;
+    margin-bottom: 4em;
+    gap: 3em;
+  }
+  .question-left,
+  .question-action {
+    flex-basis: 100%;
+    width: 100%;
+  }
+  .question-action {
+    margin-bottom: 5em;
+  }
+  .question-action button {
+    display: block;
+    width: 100%;
+  }
+  .question-footer {
+    gap: 5em;
+  }
+
+  /* result box */
+  .result-box {
+    margin-top: 15em;
+  }
+  .result-expression {
+    font-size: 3rem;
+  }
+  .result-text {
+    font-size: 2.5rem;
+  }
+  .result-feedback {
+    padding: 0;
+  }
+  .feedback {
+    font-size: 1.6rem;
+    color: var(--main-black);
+  }
+  .result-actions {
+    flex-direction: column;
+    gap: 2em;
+    margin-bottom: 5em;
+  }
+  .result-section button {
+    width: 100%;
+  }
+
+  /* copyright */
+  .copyright {
+    font-size: 1.3rem;
+  }
 }

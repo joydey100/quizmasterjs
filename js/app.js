@@ -58,7 +58,7 @@ var confettiSettings = {
   max: "250",
   size: "1.8",
   rotate: true,
-  clock: "30",
+  clock: "29",
   start_from_edge: true,
 };
 var confetti = new ConfettiGenerator(confettiSettings);
@@ -66,12 +66,6 @@ var confetti = new ConfettiGenerator(confettiSettings);
 /* ========================
  ! - Important Functions - *
  ==========================*/
-/*
- ! - Dark Mode functionality - *
- */
-const switchDarkMode = () => {
-  document.body.classList.toggle("dark-mode");
-};
 
 /*
  ! - Modal Open/Close Fuction - *
@@ -79,6 +73,7 @@ const switchDarkMode = () => {
 const modalFunc = (condition) => {
   if (condition === "open") {
     modalConditionBox.classList.add("active");
+    document.body.style.overflow = "hidden";
     if (document.body.classList.contains("dark-mode")) {
       modalContainer.classList.add("active-dark");
     } else {
@@ -86,6 +81,7 @@ const modalFunc = (condition) => {
     }
   } else {
     modalConditionBox.classList.remove("active");
+    document.body.style.overflow = "auto";
     if (document.body.classList.contains("dark-mode")) {
       modalContainer.classList.remove("active-dark");
     } else {
@@ -101,7 +97,7 @@ const modalFunc = (condition) => {
  */
 const initialShowQuestion = () => {
   //Remove the result sections
-  resultSection.style.display = "none";
+  resultSection.classList.remove("active");
   canvas.style.display = "none";
 
   // the question and score will start from the 0
@@ -115,7 +111,7 @@ const initialShowQuestion = () => {
  */
 const showQuestion = () => {
   // show Question Section
-  questionSection.style.display = "block";
+  questionSection.classList.add("active");
 
   // Start the timer
   timer();
@@ -306,8 +302,8 @@ const nextQuizBtnChange = () => {
 ! - Show Result Function
 */
 const showResult = () => {
-  questionSection.style.display = "none";
-  resultSection.style.display = "block";
+  questionSection.classList.remove("active");
+  resultSection.classList.add("active");
   canvas.style.display = "block";
 
   // Show the result in the result text
@@ -351,7 +347,7 @@ const confettiStart = () => {
 
 // Switch dark mode event listener
 darkModeToggle.addEventListener("click", () => {
-  switchDarkMode();
+  document.body.classList.toggle("dark-mode");
 });
 
 // Modal Open Button Event listener
@@ -379,6 +375,7 @@ startQuizBtn.addEventListener("click", () => {
   // before question start, there will be a loading state, after the first question, the loading option will not be shown
   if (questionIndex === 0) {
     loadingContainer.style.display = "flex";
+    document.body.style.overflow = "hidden";
     setTimeout(() => {
       loadingContainer.style.display = "none";
       showQuestion();
@@ -415,6 +412,7 @@ restart.addEventListener("click", () => {
   // before question start, there will be a loading state, after the first question, the loading option will not be shown
   if (questionIndex === 0) {
     loadingContainer.style.display = "flex";
+    document.body.style.overflow = "hidden";
     setTimeout(() => {
       loadingContainer.style.display = "none";
       showQuestion();
